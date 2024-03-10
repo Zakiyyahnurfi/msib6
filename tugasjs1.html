@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pegawai</title>
+</head>
+
+<body>
+    <table border="1" align="center">
+        <thead border=none>
+            <tr>
+                <th colspan="2" align="center">Data Pegawai</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody id="dataPegawai">
+            <tr>
+                <td>Nama Pegawai:</td>
+                <td id="namaPegawai"></td>
+            </tr>
+            <tr>
+                <td>Jabatan:</td>
+                <td id="jabatan"></td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td id="status"></td>
+            </tr>
+            <tr>
+                <td>Gaji Pokok:</td>
+                <td id="gapok"></td>
+            </tr>
+            <tr>
+                <td>Tunjangan Jabatan:</td>
+                <td id="tunjanganJabatan"></td>
+            </tr>
+            <tr>
+                <td>Tunjangan Keluarga:</td>
+                <td id="tunjanganKeluarga"></td>
+            </tr>
+            <tr>
+                <td>BPJS:</td>
+                <td id="bpjs"></td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th>Total Gaji</th>
+                <th id="totgaji"></th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        let pegawai = "Ridwan";
+        let jabatan = "Manager";
+        let status = "Menikah";
+        let gapok;
+
+        if (jabatan == "Manager") {
+            gapok = 15000000;
+        }
+        else if (jabatan == "Asisten Manager") {
+            gapok = 10000000;
+        }
+        else if (jabatan == "Staff") {
+            gapok = 5000000;
+        }
+        else {
+            gapok = 0;
+        }
+
+        let tunjanganJbtn = gapok * 0.15;
+        let bpjs = gapok * 0.1;
+        let tunjanganKlg = (status == 'Menikah') ? gapok * 0.2 : 0;
+        let totalGaji = gapok + tunjanganJbtn + bpjs + tunjanganKlg;
+
+        document.getElementById('namaPegawai').textContent = pegawai;
+        document.getElementById('jabatan').textContent = jabatan;
+        document.getElementById('status').textContent = status;
+        document.getElementById('gapok').textContent = gapok;
+        document.getElementById('tunjanganJabatan').textContent = tunjanganJbtn;
+        document.getElementById('tunjanganKeluarga').textContent = tunjanganKlg;
+        document.getElementById('bpjs').textContent = bpjs;
+        document.getElementById('totgaji').textContent = totalGaji;
+    </script>
+</body>
+
+</html>
